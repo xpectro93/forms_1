@@ -1,0 +1,18 @@
+#country {
+  background-color: silver;
+}
+
+#whytext {
+  background-color: gray;
+
+}
+#whytext >input[type="text"] {
+  width:600px;
+  height:30px;
+  
+
+}
+
+#country {
+  background-color: purple;
+}

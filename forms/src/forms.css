@@ -1,18 +1,122 @@
-#country {
-  background-color: silver;
+html {height:100%}
+
+
+
+body {
+  width: 100%;
+  height: 100%;
+  margin:0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* background-color:#d3fff1; */
+  background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/GAojbUa/space-background-loop-animation_vjn1rkcge__F0000.png");
+
+
 }
 
-#whytext {
-  background-color: gray;
+.masterbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
 }
+
+h1 {
+  font-family: 'Righteous', cursive;
+  color:white;
+  padding:15px;
+  border-style: inset;
+  border-color: blue;
+  border-radius: 10px;
+  background-color:black;
+
+}
+
+#leForm {
+  color:white;
+  padding:15px;
+  border-style: inset;
+  border-color: blue;
+  border-radius: 10px;
+  background-color:black;
+  margin-bottom: 10px;
+}
+p{
+  font-family: 'Exo', sans-serif;
+  font-size:20px;
+  font-weight: bold;
+}
+
 #whytext >input[type="text"] {
   width:600px;
   height:30px;
-  
+
 
 }
 
-#country {
-  background-color: purple;
+#water {
+  color:white;
+  padding:15px;
+  border-style: inset;
+  border-color: blue;
+  border-radius: 10px;
+  background-color:black;
+  margin-bottom: 10px;
+}
+
+#marital {
+  color:white;
+  padding:15px;
+  border-style: inset;
+  border-color: blue;
+  border-radius: 10px;
+  background-color:black;
+  margin-bottom: 10px;
+}
+#situation {
+  color:white;
+  padding:15px;
+  border-style: inset;
+  border-color: blue;
+  border-radius: 10px;
+  background-color:black;
+  margin-bottom: 10px;
+}
+#claustrophobic {
+  color:white;
+  padding:15px;
+  border-style: inset;
+  border-color: blue;
+  border-radius: 10px;
+  background-color:black;
+  margin-bottom: 10px;
+}
+#education {
+  color:white;
+  padding:15px;
+  border-style: inset;
+  border-color: blue;
+  border-radius: 10px;
+  background-color:black;
+  margin-bottom: 10px;
+  display:flex;
+  flex-direction: column;
+}
+#alive {
+  color:white;
+  padding:15px;
+  border-style: inset;
+  border-color: blue;
+  border-radius: 10px;
+  background-color:black;
+  margin-bottom: 10px;
+}
+#disease {
+  color:white;
+  padding:15px;
+  border-style: inset;
+  border-color: blue;
+  border-radius: 10px;
+  background-color:black;
+  margin-bottom: 10px;
 }

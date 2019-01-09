@@ -1,22 +1,21 @@
   import React, {Component} from 'react';
+  import Checkboxes from './checkboxes.js'
   import './forms.css';
+
   let countries = require('./countries.json');
 
 
   class Form extends Component {
     constructor() {
       super();
-      this.state = {name: "",
+      this.state = {
+        name: "",
         email: "",
         favorite: "",
         why:"",
         country:"",
         formSubmitted: false,
-        message:"",
-        robotQuestions:"",
-        water:"",
-        marital:"",
-        situation:""
+        message:""
             };
       this.handleChange = this.handleChange.bind(this);
       // this.handleChangeEmail = this.handleChangeEmail.bind(this);
@@ -38,9 +37,9 @@
 
     handleSubmit = e => {
     e.preventDefault();
-    const { name, email, favorite, why, country, water,marital,situation} = this.state;
+    const { name, email, favorite, why, country} = this.state;
 
-    if (name && email && favorite && why && country && water &&marital && situation) {
+    if (name && email && favorite && why && country) {
       this.setState({
         completed: true,
         message:
@@ -50,8 +49,6 @@
           <p>You diet consists of {favorite}</p>
           <p>You wan to go to mars because...{why}</p>
           <p>You originate from  {country}</p>
-          <p>Can you hold dat breathe? {water}</p>
-          <p>Marital Status : {marital}</p>
           <button onClick={this.handleSubmitted}>Submit</button>
           </div>
 
@@ -59,7 +56,7 @@
       });
     } else {
       this.setState({
-        message: "Please complete the form."
+        message: <p>please complete form</p>
       });
     }
   };
@@ -73,11 +70,12 @@
       console.log(this.state)
       return (
         < >
+        <div className="masterbox">
         <h1> Mission to Mars Registration Form </h1>
         {this.state.formSubmitted ? (
           <p>Thank You</p>
         ): (
-          <form  onChange={this.handleChange}>
+          <form  id="leForm" onChange={this.handleChange}>
 
           <label htmlFor = "name" > What is your name? < /label>
 
@@ -116,6 +114,7 @@
           <div id="food">
           <label htmlFor="food" >Choose a Food type</label>
           <select onChange={this.handleChange} name = "favorite" value = {this.state.favorite} >
+          <option disabled > Select Diet Type </option>
           <option value = "omnivore" > Omnivore </option>
           <option value = "vegetarian" > Vegetarian </option>
           <option value = "vegan" > Vegan </option>
@@ -126,7 +125,9 @@
 
           <div id="country">
           <label htmlFor="country"> What is your country of origin?</label>
+          <br/>
           <select onChange={this.handleChange} placeholder="Select Country" name = "country" value = {this.state.country}>
+          <option disabled> Select Country</option>
           {this.populate()}
           </select>
           </div>
@@ -142,100 +143,7 @@
             />
           </div>
 
-<div id="water">
-          <p> Can you breath better than Aquaman? </p>
 
-          Yes
-          <input
-            type="radio"
-            name="water"
-            value="yes"
-            checked={this.state.water === "yes"}
-            onChange={this.handleChange}
-          />
-
-
-          No
-          <input
-            type="radio"
-            name="water"
-            value="no"
-            checked={this.state.water === "no"}
-            onChange={this.handleChange}
-          />
-
-          I am poseidon!
-          <input
-            type="radio"
-            name="water"
-            value="poseidon"
-            checked={this.state.water === "poseidon"}
-            onChange={this.handleChange}
-          />
-</div>
-
-<div id="marital">
-        <p>Marital Status</p>
-        I is married
-        <input
-          type="radio"
-          name="marital"
-          value="married"
-          checked={this.state.marital === "married"}
-          onChange={this.handleChange}
-        />
-        <br/>
-        I is single
-         <input
-            type="radio"
-            name="marital"
-            value="unmarried"
-            checked={this.state.marital === "unmarried"}
-            onChange={this.handleChange}
-          />
-</div>
-
-<div id="situation">
-
-<p>When you are in a stressful or difficult situation, how do you most frequently react?</p>
-
-Determination: I continue to confront the situation.
-<input
-   type="radio"
-   name="situation"
-   value="determination"
-   checked={this.state.situation === "determination"}
-   onChange={this.handleChange}
- />
-<br/>
-Defeat: I stop confronting the situation.
-<input
-   type="radio"
-   name="situation"
-   value="defeat"
-   checked={this.state.situation === "defeat"}
-   onChange={this.handleChange}
- />
- <br/>
-Anger: I become upset at the situation.
-<input
-   type="radio"
-   name="situation"
-   value="anger"
-   checked={this.state.situation === "anger"}
-   onChange={this.handleChange}
- />
-
- <br/>
-Resourcefulness: I seek help to confront the situation.
-<input
-   type="radio"
-   name="situation"
-   value="resourcefulness"
-   checked={this.state.situation === "resourcefulness"}
-   onChange={this.handleChange}
- />
-</div>
 
 
           <button onClick ={this.handleSubmit}>Submit</button>
@@ -244,11 +152,14 @@ Resourcefulness: I seek help to confront the situation.
 
 
           </form>
+
         )}
 
 
 
-
+        <Checkboxes />
+        </div>
+        <br/><br/><br/>
         </>
         );}
   }

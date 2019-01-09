@@ -12,7 +12,11 @@
         why:"",
         country:"",
         formSubmitted: false,
-        message:""
+        message:"",
+        robotQuestions:"",
+        water:"",
+        marital:"",
+        situation:""
             };
       this.handleChange = this.handleChange.bind(this);
       // this.handleChangeEmail = this.handleChangeEmail.bind(this);
@@ -24,7 +28,7 @@
 
     handleSubmitted = e => {
     e.preventDefault();
-    const { formSubmitted, message} = this.state;
+    // const { formSubmitted} = this.state;
     this.setState({
       formSubmitted:true
     })
@@ -34,9 +38,9 @@
 
     handleSubmit = e => {
     e.preventDefault();
-    const { message,name, email, favorite, why, country} = this.state;
+    const { name, email, favorite, why, country, water,marital,situation} = this.state;
 
-    if (name && email && favorite && why && country) {
+    if (name && email && favorite && why && country && water &&marital && situation) {
       this.setState({
         completed: true,
         message:
@@ -46,6 +50,8 @@
           <p>You diet consists of {favorite}</p>
           <p>You wan to go to mars because...{why}</p>
           <p>You originate from  {country}</p>
+          <p>Can you hold dat breathe? {water}</p>
+          <p>Marital Status : {marital}</p>
           <button onClick={this.handleSubmitted}>Submit</button>
           </div>
 
@@ -136,8 +142,106 @@
             />
           </div>
 
+<div id="water">
+          <p> Can you breath better than Aquaman? </p>
+
+          Yes
+          <input
+            type="radio"
+            name="water"
+            value="yes"
+            checked={this.state.water === "yes"}
+            onChange={this.handleChange}
+          />
+
+
+          No
+          <input
+            type="radio"
+            name="water"
+            value="no"
+            checked={this.state.water === "no"}
+            onChange={this.handleChange}
+          />
+
+          I am poseidon!
+          <input
+            type="radio"
+            name="water"
+            value="poseidon"
+            checked={this.state.water === "poseidon"}
+            onChange={this.handleChange}
+          />
+</div>
+
+<div id="marital">
+        <p>Marital Status</p>
+        I is married
+        <input
+          type="radio"
+          name="marital"
+          value="married"
+          checked={this.state.marital === "married"}
+          onChange={this.handleChange}
+        />
+        <br/>
+        I is single
+         <input
+            type="radio"
+            name="marital"
+            value="unmarried"
+            checked={this.state.marital === "unmarried"}
+            onChange={this.handleChange}
+          />
+</div>
+
+<div id="situation">
+
+<p>When you are in a stressful or difficult situation, how do you most frequently react?</p>
+
+Determination: I continue to confront the situation.
+<input
+   type="radio"
+   name="situation"
+   value="determination"
+   checked={this.state.situation === "determination"}
+   onChange={this.handleChange}
+ />
+<br/>
+Defeat: I stop confronting the situation.
+<input
+   type="radio"
+   name="situation"
+   value="defeat"
+   checked={this.state.situation === "defeat"}
+   onChange={this.handleChange}
+ />
+ <br/>
+Anger: I become upset at the situation.
+<input
+   type="radio"
+   name="situation"
+   value="anger"
+   checked={this.state.situation === "anger"}
+   onChange={this.handleChange}
+ />
+
+ <br/>
+Resourcefulness: I seek help to confront the situation.
+<input
+   type="radio"
+   name="situation"
+   value="resourcefulness"
+   checked={this.state.situation === "resourcefulness"}
+   onChange={this.handleChange}
+ />
+</div>
+
+
           <button onClick ={this.handleSubmit}>Submit</button>
           {this.state.message}
+
+
 
           </form>
         )}

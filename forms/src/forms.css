@@ -8,12 +8,17 @@ body {
   margin:0;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  /* background-color:#d3fff1; */
-  background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/GAojbUa/space-background-loop-animation_vjn1rkcge__F0000.png");
+  background-color:black;
+  /* background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/GAojbUa/space-background-loop-animation_vjn1rkcge__F0000.png"); */
 
 
 }
 
+img {
+  width:150px;
+  padding:20px;
+
+}
 .masterbox {
   display: flex;
   flex-direction: column;
@@ -30,6 +35,36 @@ h1 {
   border-radius: 10px;
   background-color:black;
 
+}
+#button1 {
+  display:flex;
+  margin:auto;
+  justify-content: center;
+  width:100px;
+  font-family: 'Righteous', cursive;
+  font-size: 25px;
+  background-color: black;
+  color:white;
+}
+
+#thicc {
+  padding:5px;
+  border-style: inset;
+  border-color: blue;
+  border-radius: 10px;
+}
+
+#button1:hover {
+  background-color:gray
+}
+
+input {
+  margin:10px
+}
+
+#complete {
+display: flex;
+justify-content: center;
 }
 
 #leForm {
@@ -62,6 +97,7 @@ p{
   border-radius: 10px;
   background-color:black;
   margin-bottom: 10px;
+  justify-content: space-between;
 }
 
 #marital {

@@ -2,6 +2,7 @@
   import Checkboxes from './checkboxes.js'
   import './forms.css';
 
+
   let countries = require('./countries.json');
 
 
@@ -38,25 +39,25 @@
     handleSubmit = e => {
     e.preventDefault();
     const { name, email, favorite, why, country} = this.state;
-
     if (name && email && favorite && why && country) {
       this.setState({
         completed: true,
         message:
           <div>
-          <p>You name is {name}</p>
-          <p>Your email is {email}</p>
-          <p>You diet consists of {favorite}</p>
-          <p>You wan to go to mars because...{why}</p>
-          <p>You originate from  {country}</p>
-          <button onClick={this.handleSubmitted}>Submit</button>
+          <p>Your name is <b id="thicc">{name}</b></p>
+          <p>Your email: <b id="thicc">{email}</b></p>
+          <p>Dietary preference : <b id="thicc">{favorite}</b></p>
+          <p>Reason you want to go to Mars :<b id="thicc">{why}</b></p>
+          <p>Your country of origin is:  <b id="thicc">{country}</b></p>
+          <input id="button1" type="submit"/>
+
           </div>
 
 
       });
     } else {
       this.setState({
-        message: <p>please complete form</p>
+        message: <p id="complete">Please Complete Form</p>
       });
     }
   };
@@ -67,19 +68,23 @@
 
 
     render() {
-      console.log(this.state)
+
       return (
         < >
         <div className="masterbox">
-        <h1> Mission to Mars Registration Form </h1>
-        {this.state.formSubmitted ? (
-          <p>Thank You</p>
-        ): (
-          <form  id="leForm" onChange={this.handleChange}>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/800px-NASA_logo.svg.png"/>
 
+        <h1> Mission to Mars Registration Form </h1>
+
+        {this.state.formSubmitted ? (
+          <p>Thank You {this.state.name}</p>
+        ): (
+
+          // <form  id="leForm" onChange={this.handleChange}>
+          <form id="leForm"  onChange={this.handleChange} onSubmit={this.handleSubmitted}>
           <label htmlFor = "name" > What is your name? < /label>
 
-          <input onChange = {this.handleChange}
+          <input
           type = "text"
           placeholder = "A name"
           name = "name"
@@ -101,7 +106,7 @@
 
           <br/>
           <label htmlFor = "email" > Email < /label>
-          <input onChange = {this.handleChange}
+          <input
           type = "text"
           placeholder = "A email"
           name = "email"
@@ -112,9 +117,9 @@
           <br/>
 
           <div id="food">
-          <label htmlFor="food" >Choose a Food type</label>
-          <select onChange={this.handleChange} name = "favorite" value = {this.state.favorite} >
-          <option disabled > Select Diet Type </option>
+          <label htmlFor="food" >Dietary preference </label>
+          <select onChange ={this.handleChange} name = "favorite" value = {this.state.favorite} >
+          <option  defaultValue> Select Diet Type </option>
           <option value = "omnivore" > Omnivore </option>
           <option value = "vegetarian" > Vegetarian </option>
           <option value = "vegan" > Vegan </option>
@@ -126,15 +131,15 @@
           <div id="country">
           <label htmlFor="country"> What is your country of origin?</label>
           <br/>
-          <select onChange={this.handleChange} placeholder="Select Country" name = "country" value = {this.state.country}>
-          <option disabled> Select Country</option>
+          <select onChange ={this.handleChange} placeholder="Select Country" name = "country" value = {this.state.country}>
+          <option defaultValue> Select Country</option>
           {this.populate()}
           </select>
           </div>
 
           <div id="whytext">
           <label htmlFor = "why">Why do you want to be a Mars explorer?< /label>
-          <input  onChange = {this.handleChange}
+          <input
             type="text"
             placeholder="Why doe"
             name="why"
@@ -146,18 +151,18 @@
 
 
 
-          <button onClick ={this.handleSubmit}>Submit</button>
+
+
+
+
+          <Checkboxes checkState={this.props}/>
+          <button id="button1" onClick={this.handleSubmit}>Submit</button>
           {this.state.message}
-
-
-
           </form>
 
         )}
 
 
-
-        <Checkboxes />
         </div>
         <br/><br/><br/>
         </>

@@ -18,6 +18,7 @@ class Checkboxes extends Component {
         siblings:false,
         parents:false,
         grandparents:false
+
       },
       education:{
         gedOrhs:false,
@@ -26,8 +27,8 @@ class Checkboxes extends Component {
         masters:false,
         phd:false,
         other:false
-      }
-
+      },
+      message:""
     }
     this.handleChange = this.handleChange.bind(this);
 
@@ -36,16 +37,18 @@ class Checkboxes extends Component {
   handleChange(event) {
     this.setState({[event.target.name]: event.target.value});
   }
-
   handleCheckboxChange = e => {
       if (e.target.id) {
+
+        //
         let newState = this.state[e.target.name];
 
         newState[e.target.id] = e.target.checked;
         this.setState({
           [e.target.name]: newState
         });
-      } else {
+      }
+      else {
         this.setState({
           [e.target.name]: e.target.checked
         });
@@ -54,10 +57,13 @@ class Checkboxes extends Component {
 
   render (){
     console.log(this.state)
-    return ( <div className="box">
+    // const {checkState} = this.props;
+    return (
+    <div className="box">
+
     <div className="radio">
       <div id="water">
-          <p> Can you breath better than Aquaman? </p>
+          <p> Can you breathe better than Aquaman? </p>
 
                 Yes
                 <input
@@ -241,7 +247,7 @@ class Checkboxes extends Component {
           />
           </div>
 
-          <div id="education">
+        <div id="education">
         <p>Check all educational credentials you have received: </p>
         GED or High School diploma
         <input
@@ -295,6 +301,8 @@ class Checkboxes extends Component {
 
 
         </div>
+
+        {this.state.message}
 
 
       </div>

@@ -72,7 +72,7 @@
       return (
         < >
         <div className="masterbox">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/800px-NASA_logo.svg.png"/>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/800px-NASA_logo.svg.png" alt="nasa logo"/>
 
         <h1> Mission to Mars Registration Form </h1>
 

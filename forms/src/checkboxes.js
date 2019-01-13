@@ -84,7 +84,7 @@ class Checkboxes extends Component {
                   onChange={this.handleChange}
                 />
 
-                I am poseidon!
+                I am Poseidon!
                 <input
                   type="radio"
                   name="water"

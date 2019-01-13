@@ -13,7 +13,10 @@ body {
 
 
 }
+label {
+  font-family: 'Righteous', cursive;
 
+}
 img {
   width:150px;
   padding:20px;
@@ -45,6 +48,7 @@ h1 {
   font-size: 25px;
   background-color: black;
   color:white;
+  margin-top:25px;
 }
 
 #thicc {
@@ -59,7 +63,9 @@ h1 {
 }
 
 input {
-  margin:10px
+  margin:10px;
+  font-family: 'Righteous', cursive;
+
 }
 
 #complete {
